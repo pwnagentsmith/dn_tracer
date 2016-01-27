@@ -1,0 +1,7 @@
+{%include "header.html" %}
+<div class="ui container" style="padding-left: 30px;padding-top: 60px;padding-right: 30px;">
+	{% autoescape on %}
+	{% block content %}{% endblock %}
+	{% endautoescape %}
+</div>
+{%include "footer.html" %}

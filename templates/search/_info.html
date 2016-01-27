@@ -1,0 +1,26 @@
+<table class="table table-striped" sytle="table-layout: fixed;">
+    <tbody>
+		{% for re in record %}
+		<tr>
+			<th>{{ type|upper }}</th>
+			{% if type == "ip" %}
+			<td>{{ re.ip }}</td>
+			{% else %}
+            <td>{{ re.dn }}</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<th>Added Date</th>
+			<td>{{ re.date|date:'Y/m/d' }}</td>
+		</tr>
+		<tr>
+			<th>Source</th>
+			<td>{{ re.source }}</td>
+		</tr>
+		<tr>
+			<th>Note</th>
+            <td>{{ re.note }}</td>
+        </tr>
+		{% endfor %}
+    </tbody>
+</table>

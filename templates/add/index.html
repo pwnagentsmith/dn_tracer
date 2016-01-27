@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<p style="margin-bottom: 10px;"></p>
+		<form role="form" action="" method="post">{% csrf_token %}
+			<fieldset class="form-group row">
+				<label for="dn_ip" class="col-sm-2 form-control-label">DN / IP(*)</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="dn_ip" name="dn_ip" placeholder="Enter DN or IP">
+				</div>
+			</fieldset>
+			<fieldset class="form-group row">
+				<label for="port" class="col-sm-2 form-control-label">Port</label>
+				<div class="col-sm-10">
+					<input type="number" class="form-control" id="port" name="port" placeholder="Enter Port Number">
+				</div>
+			</fieldset>
+			<fieldset class="form-group row">
+				<label for="source" class="col-sm-2 form-control-label">Source(*)</label>
+				<div class="col-sm-10">
+					<select class="c-select" id="source" name="source">
+						<option value="IR">IR</option>
+						<option value="Self_Collected">Self_Collected</option>
+						<option value="Out_Source">Out_Source</option>
+						<option value="SOC">SOC</option>
+					</select>
+				</div>
+			</fieldset>
+			<fieldset class="form-group row">
+				<label for="note" class="col-sm-2 form-control-label">Note</label>
+				<div class="col-sm-10">
+					<textarea class="form-control" id="note" rows="3" name="note"></textarea>
+					<small>每行請輸入一個Tag，最多3個</small>
+				</div>
+			</fieldset>
+			<div class="center">
+				<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+	<div class="col-md-4" style="border-right: 1px dashed #ddd;;">
+		
+		{% if type %}
+		{% include "search/_info.html" %}
+		{% endif %}
+
+	</div>
+	<div class="col-md-8" style="min-height: 0px;">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Searching Result</h3>
+		</div>
+		{% if results %}
+		<table class="table table-striped" style="table-layout: fixed;">
+			<thead>
+				<tr>
+					<th>Query</th>
+					<th>Answer</th>
+					<th>First Seen</th>
+					<th>Last Seen</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for result in results %}
+				<tr>
+					<td>
+						{{ result.query }}
+					</td>
+					<td>
+						{{ result.answer }}
+					</td>
+					<td>
+						{{ result.first_seen|date:'Y/m/d H:i:s' }}
+					</td>
+					<td>
+						{{ result.last_seen|date:'Y/m/d H:i:s' }}
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		{% else %}
+		<div class="panel-body"><p>No DOMAIN-NAME analyzed yet.</p></div>
+		{% endif %}
+	</div>
+	</div>
+</div>
+{% endblock %}
