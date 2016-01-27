@@ -1,0 +1,6 @@
+Django==1.8.4
+django-bootstrap3==6.2.2
+django-bootstrap3-datepicker==0.3.1
+django-bootstrap3-datetimepicker==2.2.3
+MySQL-python==1.2.5
+SQLAlchemy==1.0.8

@@ -1,0 +1,14 @@
+[database]
+# Specify the database connection string.
+# NOTE: If you are using a custom database (different from sqlite), you have to
+# use utf-8 encoding when issuing the SQL database creation statement.
+# Examples, see documentation for more:
+# sqlite:///foo.db
+# postgresql://foo:bar@localhost:5432/mydatabase
+# mysql://foo:bar@localhost/mydatabase
+# If empty, default is a SQLite in db/cuckoo.db.
+connection = mysql://[USER]:[PASSWORD]@[HOST]:[PORT]/[DATABASE]?charset=utf8
+
+# Database connection timeout in seconds.
+# If empty, default is set to 60 seconds.
+timeout =
