@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth.views import login, logout
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -22,4 +23,8 @@ urlpatterns = [
     url(r'^add/', include("add.urls")),
     url(r'^$', include("dashboard.urls")),
     url(r'^dashboard/$', include("dashboard.urls")),
+    url(r'^login/$', login, {'template_name':'login.html'}),
+    url(r'^logout/$', logout, {'next_page': '/'}),
+    # url(r'^login/$', include("login.urls")),
+    # url(r'^logout/$', views.logout_page),
 ]

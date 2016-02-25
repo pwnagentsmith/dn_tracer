@@ -43,7 +43,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'search',
     'bootstrap3',
-    'bootstrap3_datetime'
+    'bootstrap3_datetime',
+    'add',
+    'dashboard'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -114,3 +116,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+# Login Redirect URL
+LOGIN_REDIRECT_URL = "/"

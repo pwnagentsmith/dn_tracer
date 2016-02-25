@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% if request.user.is_authenticated %}
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
 		<p style="margin-bottom: 10px;"></p>
@@ -40,4 +41,7 @@
 		</form>
 	</div>
 </div>
+{% else %}
+<h1 class="center">You Haven't <a href="/login/">LOGIN</a> Yet</h1>
+{% endif %}
 {% endblock %}
