@@ -170,7 +170,7 @@ class Database(object):
         session = self.Session()
         try:
             ip_record = session.query(Malicious_ip_records).filter(
-                Malicious_ip_records.ip == ip)
+                Malicious_ip_records.ip.like('%{}%'.format(ip))).all()
             return ip_record
         except SQLAlchemyError as e:
             logging.info(str(e))
@@ -181,7 +181,7 @@ class Database(object):
         session = self.Session()
         try:
             dn_record = session.query(Malicious_dn_records).filter(
-                Malicious_dn_records.dn == dn)
+                Malicious_dn_records.dn.like('%{}%'.format(dn))).all()
             return dn_record
         except SQLAlchemyError as e:
             logging.info((str(e)))
@@ -204,12 +204,12 @@ class Database(object):
         try:
             if dn:
                 result = session.query(Pdns_records).filter(
-                    Pdns_records.query == dn,
+                    Pdns_records.query.like('%{}%'.format(dn)),
                     Pdns_records.first_seen >= start,
                     Pdns_records.last_seen <= '{} 23:59:59'.format(end))
             elif ip:
                 result = session.query(Pdns_records).filter(
-                    Pdns_records.answer == ip,
+                    Pdns_records.answer.like('%P{%'.format(ip)),
                     Pdns_records.first_seen >= start,
                     Pdns_records.last_seen <= '{} 23:59:59'.format(end))
             return result
